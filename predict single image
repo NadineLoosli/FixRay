@@ -1,0 +1,42 @@
+Wie legst du einen Inference-Teil im FixRay-Repository an?
+Hier ist eine klar strukturierte Anleitung, wie du einen eigenen Ordner oder eine Datei für die Einzelbild-Vorhersage ("Inference") in deinem FixRay-Repository anlegst – basierend auf Best Practices:​
+
+1. Neuen Unterordner/Datei anlegen
+Erstelle im Hauptverzeichnis deines Repos einen neuen Ordner inference/ oder direkt eine Datei wie predict_single_image.py.
+
+Beispielstruktur:
+
+text
+FixRay/
+├── fracture-segmentation/
+├── data/
+├── inference/
+│   └── predict_single_image.py
+├── README.md
+└── ...
+2. Inference-Skript schreiben
+Erstelle (wie im oben genannten Beispiel) ein Python-Skript, das das trainierte Modell lädt und beliebige Bilder aus data/raw/ verarbeitet.
+
+Du kannst dafür das Muster aus meiner vorherigen Antwort übernehmen.
+
+3. README ergänzen
+Beschreibe im README.md deines Repos kurz den Zweck des Inference-Teils, z.B.:
+
+"Im Ordner inference/ befindet sich ein Skript zur Einzelbild-Inferenz. Damit können beliebige Röntgenbilder auf das Vorliegen von Frakturen geprüft werden."
+
+4. Best Practices
+Verwende sprechende Namen für Ordner und Skripte (z.B. inference, predict_single_image.py)
+
+Halte die Struktur übersichtlich: Quellcode, Modelle, Daten, Dokumentation und Inferenzskripte jeweils in separaten Unterordnern.​
+
+5. Versionieren & committen
+Führe git add, git commit und git push aus, um deine Änderungen im Repository zu speichern.
+
+Zusammengefasst:
+Lege eine neue Datei wie predict_single_image.py im (neuen) Ordner inference/ an, schreibe dort das benötigte Inference-Skript hinein und dokumentiere im README, wofür es gedacht ist. So bleibt dein Repository klar strukturiert und erweiterbar.
+
+Möchtest du Unterstützung bei der genauen Implementierung des Skripts? Dann kannst du auch einzelne Fragen oder Codeabschnitte Schritt für Schritt durchgehen!
+
+Wenn du möchtest, kann ich mit dir gemeinsam den konkreten Inhalt für dein Inference-Skript entwickeln und erklären, wie du alles in Git einpflegst. Sag mir einfach, bis zu welchem Schritt du selbst weiterkommst!
+
+Wenn du mir sagst, welches Betriebssystem/IDE du nutzt (z.B. PyCharm, VSCode, Terminal), kann ich dir noch gezieltere Tipps geben.
