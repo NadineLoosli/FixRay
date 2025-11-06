@@ -42,3 +42,17 @@ Wichtige Links
 
 Kontakt
 - Autor: Nadine Loosli
+- Coautor: Anna Horvath
+- Coautor: Sura Karaburun
+
+### Markdown
+[Cheat Sheet](https://www.markdownguide.org/cheat-sheet/)
+
+### Git Cheat Sheet
+[Command and workflow summary](https://krishnaiitd.github.io/gitcommands/git-workflow/)
+- `git status`: Show status of the local repository
+- `git log`: Show commit history (press `q` to exit)
+- `git pull`: Download current status from GitHub, update local files (may lead to conflicts...)
+- `git push`: Upload all local commits to GitHub (may lead to conflicts...)
+- `git add`: Mark files as "to be committed" (either `git add FILE` or `git add .` to add all files)
+- `git commit -m "MESSAGE"`: Create a new commit with the given message
