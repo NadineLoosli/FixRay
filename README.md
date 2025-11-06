@@ -56,3 +56,4 @@ Kontakt
 - `git push`: Upload all local commits to GitHub (may lead to conflicts...)
 - `git add`: Mark files as "to be committed" (either `git add FILE` or `git add .` to add all files)
 - `git commit -m "MESSAGE"`: Create a new commit with the given message
+  - If you forgot the `-m "MESSAGE"`, git might open a new text file in the "vim" text editor. Exit it with ":q!".
