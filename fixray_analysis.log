@@ -1,0 +1,9 @@
+2025-11-09 19:59:34,419 - INFO - Device: cpu
+2025-11-09 19:59:34,419 - INFO - Model Path: ../fracture-segmentation/fracture_detection_model_final.pth
+2025-11-09 19:59:34,419 - INFO - FixRay - Frakturerkennungssystem startet...
+2025-11-09 19:59:43,148 - INFO - Device: cpu
+2025-11-09 19:59:43,148 - INFO - Model Path: ../fracture-segmentation/fracture_detection_model_final.pth
+2025-11-09 19:59:43,148 - INFO - FixRay - Frakturerkennungssystem startet...
+2025-11-09 20:01:07,632 - INFO - Device: cpu
+2025-11-09 20:01:07,635 - INFO - Model Path: ../fracture-segmentation/fracture_detection_model_final.pth
+2025-11-09 20:01:07,648 - INFO - FixRay - Frakturerkennungssystem startet...
