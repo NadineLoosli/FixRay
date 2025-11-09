@@ -1,0 +1,8 @@
+numpy
+pillow
+pytest
+# Optional (uncomment if used)
+# torch
+# torchvision
+# scikit-image
+# opencv-python

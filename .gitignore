@@ -9,7 +9,17 @@ build/
 # Python
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
+.Python
 .venv/
+venv/
+env/
+ENV/
+*.egg-info/
+dist/
+*.egg
+.pytest_cache/
 
 # Env
 .env

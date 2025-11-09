@@ -1,3 +1,9 @@
+# Was hast du mit dem fracture-segmentation-Repository gemacht?
+
+Verschobener Inhalt aus dem Top-Level. Ergänze hier eine kurze Beschreibung, welche Änderungen vorgenommen wurden und welche Dateien relevant sind.
+
+---
+
 Lass uns Schritt für Schritt durchgehen, was passiert ist, und warum du Python installieren musstest:
 
 1. Repository klonen

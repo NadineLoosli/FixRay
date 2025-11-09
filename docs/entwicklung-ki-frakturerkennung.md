@@ -1,3 +1,10 @@
+# Entwicklung KI-Software zur Frakturerkennung
+
+Diese Datei wurde aus dem ursprünglichen Top-Level-Dokument verschoben und in docs/ abgelegt.
+Füge hier ausführliche Projektdokumentation, Architektur, Datensätze und Trainingsanleitungen ein.
+
+---
+
 Schritt-für-Schritt: Eigene KI-Software zur Frakturerkennung entwickeln
 Dein Ziel: Eine
 Software, die automatisch auf Röntgenbildern erkennt,
@@ -15,7 +22,7 @@ Datensatz: Viele (tausende!) Röntgenbilder, mit und ohne Fraktur, sorgfältig v
 
 Architektur: Convolutional Neural Networks (CNNs) oder fortgeschrittene KI wie Mask R-CNN, RetinaNet oder ResNet werden genutzt.​
 
-Training: Modell „lernt“ Unterschiede anhand der Labels.
+Training: Modell „lernt" Unterschiede anhand der Labels.
 
 Evaluierung/Validierung: Neue, unbekannte Bilder testen, wie zuverlässig die Erkennung ist.
 2. Klassifizierung: OP-Bedarf und Schraubenwahl
@@ -94,4 +101,3 @@ Die vollständige Automatisierung für Fraktur ja/nein + OP-Bedarf + Schraubenem
 Mein Tipp: Beschränke dich zunächst auf das, was technisch schon sehr gut funktioniert (Fraktur ja/nein, Fraktur lokalisieren/klassifizieren) und sammle gezielt für deine Wunschfunktionen strukturierte Daten aus Klinik oder in Zusammenarbeit mit Fachleuten.
 
 Möchtest du den ersten Schritt (Frakturerkennung mit Mask R-CNN) jetzt gemeinsam schrittweise starten, oder beraten wir, wie du die nächsten Labeling-Schritte angehst? Sag gern Bescheid!
-
