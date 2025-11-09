@@ -19,10 +19,6 @@ dependencies = [
     "numpy",
     "pillow",
     "pytest",
-]
-
-[project.optional-dependencies]
-fracture-segmentation = [
     "fracture-segmentation @ git+https://github.com/NadineLoosli/fracture-segmentation.git@main",
 ]
 

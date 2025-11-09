@@ -8,4 +8,6 @@ pytest
 # opencv-python
 
 # Install fracture-segmentation from your GitHub repo (pin to main)
+# Note: Pinned to 'main' branch as specified. For production, consider pinning to a specific
+# commit hash or release tag for better reproducibility (e.g., @v1.0.0 or @abc1234)
 git+https://github.com/NadineLoosli/fracture-segmentation.git@main#egg=fracture_segmentation

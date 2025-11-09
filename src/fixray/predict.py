@@ -9,7 +9,7 @@ try:
     from fracture_segmentation import load_model as fs_load_model  # <- adjust if the package exposes a different symbol
     from fracture_segmentation import predict as fs_predict      # <- adjust if needed
     _HAS_FS = True
-except Exception:
+except (ImportError, ModuleNotFoundError, AttributeError):
     fs_load_model = None
     fs_predict = None
     _HAS_FS = False
