@@ -13,3 +13,6 @@ __pycache__/
 
 # Env
 .env
+
+# Model weights
+models/
