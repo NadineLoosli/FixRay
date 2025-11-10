@@ -9,6 +9,26 @@ from inference.predict_single_image import load_model, analyze_image
 
 st.set_page_config(page_title="FixRay - Frakturerkennung", layout="centered")
 
+# Dark theme CSS: schwarzer Hintergrund, weißer Text
+st.markdown(
+    """
+    <style>
+      html, body, .stApp, .main, .block-container, .stFileUpload, .stButton>button {
+        background-color: #000000 !important;
+        color: #ffffff !important;
+      }
+      .stMarkdown, .stText, .stSlider, .stJson, .stNumberInput, .stSelectbox {
+        color: #ffffff !important;
+      }
+      /* Bildhelligkeit leicht anpassen, damit Annotationen sichtbar bleiben */
+      .stImage img { filter: brightness(0.95) !important; }
+      /* Links / kleine UI-Anpassungen */
+      a { color: #9ad4ff !important; }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
 st.title("FixRay — Frakturerkennung (Drag & Drop JPG)")
 
 st.markdown("Droppe ein JPG/JPEG/PNG oder wähle eine Datei aus. Das Modell analysiert das Bild und liefert ein annotiertes Ergebnisbild.")
