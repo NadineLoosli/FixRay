@@ -10,6 +10,12 @@ build/
 __pycache__/
 *.pyc
 .venv/
+*.egg-info/
+.pytest_cache/
+*.egg
 
 # Env
 .env
+
+# Model weights
+models/
