@@ -31,3 +31,9 @@ jobs:
     - name: Run tests with pytest
       run: |
         pytest -v
+        pip install -r requirements.txt
+    
+    - name: Run tests
+      run: |
+        export PYTHONPATH="${PYTHONPATH}:${PWD}/src"
+        pytest tests/
