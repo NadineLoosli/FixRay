@@ -1,10 +1,8 @@
-# ...existing code...
 import os
 import tempfile
 import streamlit as st
 from PIL import Image
 
-# Importiere Funktionen aus deinem Inferenz-Skript
 from inference.predict_single_image import load_model, analyze_image, CONFIG
 
 st.set_page_config(page_title="FixRay - Frakturerkennung", layout="centered")
@@ -13,10 +11,8 @@ st.title("FixRay — Frakturerkennung (Drag & Drop JPG)")
 
 st.markdown("Droppe ein JPG/JPEG/PNG oder wähle eine Datei aus. Das Modell analysiert das Bild und liefert ein annotiertes Ergebnisbild.")
 
-# Confidence-Slider
 confidence = st.slider("Confidence-Schwelle", min_value=0.0, max_value=1.0, value=float(CONFIG.get('confidence_threshold', 0.5)), step=0.01)
 
-# Lade/Cache das Modell einmal
 @st.cache(allow_output_mutation=True)
 def get_model():
     try:
@@ -28,7 +24,6 @@ def get_model():
 uploaded = st.file_uploader("Bild hochladen", type=['jpg', 'jpeg', 'png'])
 
 if uploaded is not None:
-    # Temporär speichern
     with tempfile.NamedTemporaryFile(delete=False, suffix=os.path.splitext(uploaded.name)[1]) as tmp:
         tmp.write(uploaded.read())
         tmp_path = tmp.name
@@ -57,11 +52,9 @@ if uploaded is not None:
         else:
             st.error(f"Analyse fehlgeschlagen: {result.get('error_message')}")
 
-    # Option: temporäre Datei entfernen
     try:
         os.remove(tmp_path)
     except Exception:
         pass
 else:
     st.info("Lade ein Bild hoch, um die Analyse zu starten.")
-# ...existing code...

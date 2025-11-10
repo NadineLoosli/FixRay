@@ -1,11 +1,11 @@
-# ...existing code...
 import os
 import tempfile
 import streamlit as st
 from PIL import Image
+import torch
 
-# Importiere Funktionen aus deinem Inferenz-Skript
-from inference.predict_single_image import load_model, analyze_image, CONFIG
+# Importiere nur die Funktionen (keine CONFIG)
+from inference.predict_single_image import load_model, analyze_image
 
 st.set_page_config(page_title="FixRay - Frakturerkennung", layout="centered")
 
@@ -13,27 +13,30 @@ st.title("FixRay — Frakturerkennung (Drag & Drop JPG)")
 
 st.markdown("Droppe ein JPG/JPEG/PNG oder wähle eine Datei aus. Das Modell analysiert das Bild und liefert ein annotiertes Ergebnisbild.")
 
-# Confidence-Slider
-confidence = st.slider("Confidence-Schwelle", min_value=0.0, max_value=1.0, value=float(CONFIG.get('confidence_threshold', 0.5)), step=0.01)
+# Lokale Konfiguration (falls predict_single_image.py kein CONFIG exportiert)
+MODEL_PATH = r'C:\Users\nadin\FixRay\fracture-segmentation\fracture_detection_model_final.pth'
+OUTPUT_DIR = r'C:/Users/nadin/FixRay/results'
+DEFAULT_CONF = 0.5
+DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-# Lade/Cache das Modell einmal
-@st.cache(allow_output_mutation=True)
+confidence = st.slider("Confidence-Schwelle", min_value=0.0, max_value=1.0,
+                       value=float(DEFAULT_CONF), step=0.01)
+
+@st.cache_resource
 def get_model():
     try:
-        model = load_model(CONFIG['model_path'], CONFIG['device'])
-        return model
+        return load_model(MODEL_PATH, DEVICE)
     except Exception as e:
         return e
 
 uploaded = st.file_uploader("Bild hochladen", type=['jpg', 'jpeg', 'png'])
 
 if uploaded is not None:
-    # Temporär speichern
     with tempfile.NamedTemporaryFile(delete=False, suffix=os.path.splitext(uploaded.name)[1]) as tmp:
         tmp.write(uploaded.read())
         tmp_path = tmp.name
 
-    st.image(Image.open(tmp_path), caption="Eingabebild", use_column_width=True)
+    st.image(Image.open(tmp_path), caption="Eingabebild", use_container_width=True)
 
     model_or_err = get_model()
     if isinstance(model_or_err, Exception):
@@ -41,13 +44,13 @@ if uploaded is not None:
     else:
         model = model_or_err
         with st.spinner("Analysiere Bild..."):
-            result = analyze_image(tmp_path, model, CONFIG['output_dir'], confidence_threshold=confidence)
+            result = analyze_image(tmp_path, model, OUTPUT_DIR, confidence_threshold=confidence)
 
         if result.get('status') == 'SUCCESS':
             st.success(f"Analyse abgeschlossen — {result.get('fractures_detected', 0)} Fraktur(en) erkannt")
             out_img = result.get('output_image')
             if out_img and os.path.exists(out_img):
-                st.image(out_img, caption="Ergebnis", use_column_width=True)
+                st.image(out_img, caption="Ergebnis", use_container_width=True)
             st.json({
                 "image_path": result.get('image_path'),
                 "fractures_detected": result.get('fractures_detected'),
@@ -57,11 +60,9 @@ if uploaded is not None:
         else:
             st.error(f"Analyse fehlgeschlagen: {result.get('error_message')}")
 
-    # Option: temporäre Datei entfernen
     try:
         os.remove(tmp_path)
     except Exception:
         pass
 else:
     st.info("Lade ein Bild hoch, um die Analyse zu starten.")
-# ...existing code...

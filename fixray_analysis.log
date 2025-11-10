@@ -7,3 +7,76 @@
 2025-11-09 20:01:07,632 - INFO - Device: cpu
 2025-11-09 20:01:07,635 - INFO - Model Path: ../fracture-segmentation/fracture_detection_model_final.pth
 2025-11-09 20:01:07,648 - INFO - FixRay - Frakturerkennungssystem startet...
+2025-11-09 20:04:21,774 - INFO - Device: cpu
+2025-11-09 20:04:21,774 - INFO - Model Path: ../fracture-segmentation/fracture_detection_model_final.pth
+2025-11-09 20:04:21,774 - INFO - FixRay - Frakturerkennungssystem startet...
+2025-11-09 20:42:17,997 - INFO - Device: cpu
+2025-11-09 20:42:17,997 - INFO - Model Path: ../fracture-segmentation/fracture_detection_model_final.pth
+2025-11-09 20:42:17,997 - INFO - FixRay - Frakturerkennungssystem startet...
+2025-11-09 20:51:38,304 - INFO - Device: cpu
+2025-11-09 20:51:38,304 - INFO - Model Path: ../fracture-segmentation/fracture_detection_model_final.pth
+2025-11-09 20:51:38,304 - INFO - FixRay - Frakturerkennungssystem startet...
+2025-11-09 20:54:40,847 - INFO - Device: cpu
+2025-11-09 20:54:40,847 - INFO - Model Path: ../fracture-segmentation/fracture_detection_model_final.pth
+2025-11-09 20:54:40,847 - INFO - FixRay - Frakturerkennungssystem startet...
+2025-11-09 20:57:49,209 - INFO - Device: cpu
+2025-11-09 20:57:49,209 - INFO - Model Path: ../image_analysis/fracture_detection_model_final.pth
+2025-11-09 20:57:49,209 - INFO - FixRay - Frakturerkennungssystem startet...
+2025-11-09 21:01:31,220 - INFO - Device: cpu
+2025-11-09 21:01:31,220 - INFO - Model Path: C:\Users\nadin\FixRay\fracture-segmentation\fracture_detection_model_final.pth
+2025-11-09 21:01:31,220 - INFO - FixRay - Frakturerkennungssystem startet...
+2025-11-09 21:01:31,220 - INFO - Lade Modell von: C:\Users\nadin\FixRay\fracture-segmentation\fracture_detection_model_final.pth
+2025-11-09 21:01:31,220 - INFO - Initialisiere Modell...
+2025-11-09 21:01:32,236 - INFO - Modell erfolgreich initialisiert
+2025-11-09 21:01:32,736 - INFO - Modell erfolgreich geladen
+2025-11-09 21:01:32,736 - INFO - ============================================================
+2025-11-09 21:01:32,736 - INFO - Starte Bildanalyse: deinbild.jpg
+2025-11-09 21:01:32,736 - INFO - ============================================================
+2025-11-09 21:01:32,736 - INFO - Lade Bild: C:/Users/nadin/FixRay/data/raw\deinbild.jpg
+2025-11-09 21:01:33,126 - INFO - Starte Inferenz...
+2025-11-09 21:01:37,588 - INFO - Inferenz abgeschlossen. Erkannte Objekte: 100
+2025-11-09 21:01:37,588 - INFO - Nach Filterung (0.5): 0 Objekte
+2025-11-09 21:01:37,596 - INFO - Visualisiere Ergebnisse...
+2025-11-09 21:01:40,333 - INFO - Ergebnis gespeichert: C:/Users/nadin/FixRay/results\fracture_analysis_20251109_210137.png
+2025-11-09 21:01:40,526 - INFO - Analyse abgeschlossen: 0 Fraktur(en) erkannt
+2025-11-09 21:01:40,526 - INFO - ============================================================
+2025-11-09 21:04:06,093 - INFO - Device: cpu
+2025-11-09 21:04:06,093 - INFO - Model Path: C:\Users\nadin\FixRay\fracture-segmentation\fracture_detection_model_final.pth
+2025-11-09 21:04:06,093 - INFO - FixRay - Frakturerkennungssystem startet...
+2025-11-09 21:04:06,093 - INFO - Lade Modell von: C:\Users\nadin\FixRay\fracture-segmentation\fracture_detection_model_final.pth
+2025-11-09 21:04:06,093 - INFO - Initialisiere Modell...
+2025-11-09 21:04:06,879 - INFO - Modell erfolgreich initialisiert
+2025-11-09 21:04:07,207 - INFO - Modell erfolgreich geladen
+2025-11-09 21:04:07,207 - INFO - ============================================================
+2025-11-09 21:04:07,207 - INFO - Starte Bildanalyse: deinbild.jpg
+2025-11-09 21:04:07,207 - INFO - ============================================================
+2025-11-09 21:04:07,207 - INFO - Lade Bild: C:/Users/nadin/FixRay/data/raw\deinbild.jpg
+2025-11-09 21:04:07,410 - INFO - Starte Inferenz...
+2025-11-09 21:04:10,976 - INFO - Inferenz abgeschlossen. Erkannte Objekte: 100
+2025-11-09 21:04:10,976 - INFO - Nach Filterung (0.5): 0 Objekte
+2025-11-09 21:04:10,976 - INFO - Visualisiere Ergebnisse...
+2025-11-09 21:04:11,801 - INFO - Ergebnis gespeichert: C:/Users/nadin/FixRay/results\fracture_analysis_20251109_210410.png
+2025-11-09 21:04:11,964 - INFO - Analyse abgeschlossen: 0 Fraktur(en) erkannt
+2025-11-09 21:04:11,964 - INFO - ============================================================
+2025-11-10 10:57:40,968 - INFO - Device: cpu
+2025-11-10 10:57:40,968 - INFO - Model Path: C:\Users\nadin\FixRay\fracture-segmentation\fracture_detection_model_final.pth
+2025-11-10 10:57:40,968 - INFO - FixRay - Frakturerkennungssystem startet...
+2025-11-10 10:57:40,968 - INFO - Lade Modell von: C:\Users\nadin\FixRay\fracture-segmentation\fracture_detection_model_final.pth
+2025-11-10 10:57:40,968 - INFO - Initialisiere Modell...
+2025-11-10 10:57:41,987 - INFO - Modell erfolgreich initialisiert
+2025-11-10 10:57:42,505 - INFO - Modell erfolgreich geladen
+2025-11-10 10:57:42,508 - INFO - ============================================================
+2025-11-10 10:57:42,509 - INFO - Starte Bildanalyse: deinbild.jpg
+2025-11-10 10:57:42,510 - INFO - ============================================================
+2025-11-10 10:57:42,510 - INFO - Lade Bild: C:/Users/nadin/FixRay/data/raw\deinbild.jpg
+2025-11-10 10:57:42,986 - INFO - Starte Inferenz...
+2025-11-10 10:57:47,446 - INFO - Inferenz abgeschlossen. Erkannte Objekte: 100
+2025-11-10 10:57:47,449 - INFO - Nach Filterung (0.5): 0 Objekte
+2025-11-10 10:57:47,450 - INFO - Visualisiere Ergebnisse...
+2025-11-10 10:57:51,789 - INFO - Ergebnis gespeichert: C:/Users/nadin/FixRay/results\fracture_analysis_20251110_105747.png
+2025-11-10 10:57:51,974 - INFO - Analyse abgeschlossen: 0 Fraktur(en) erkannt
+2025-11-10 10:57:51,975 - INFO - ============================================================
+2025-11-10 11:02:14,452 - INFO - Device: cpu
+2025-11-10 11:02:14,452 - INFO - Model Path: C:\Users\nadin\FixRay\fracture-segmentation\fracture_detection_model_final.pth
+2025-11-10 11:02:14,452 - INFO - FixRay - Frakturerkennungssystem startet...
+2025-11-10 11:02:14,452 - ERROR - Usage: python predict_single_image.py <image_path> [confidence]
