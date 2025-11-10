@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fixray"
+version = "0.1.0"
+description = "FixRay - KI-Software zur Frakturerkennung"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [
+    {name = "Nadine Loosli"},
+    {name = "Anna Horvath"},
+    {name = "Sura Karaburun"}
+]
+
+dependencies = [
+    "numpy",
+    "pillow",
+    "pytest",
+    "fracture-segmentation @ git+https://github.com/NadineLoosli/fracture-segmentation.git@main",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
