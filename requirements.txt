@@ -1,0 +1,11 @@
+numpy
+pillow
+pytest
+# Optional (uncomment if used)
+# torch
+# torchvision
+# scikit-image
+# opencv-python
+
+# fracture-segmentation is included as a git submodule under libs/fracture-segmentation.
+# Run `scripts/bootstrap_submodules.sh` to initialize submodules and install editable if available.
