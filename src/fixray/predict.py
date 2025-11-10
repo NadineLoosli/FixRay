@@ -1,4 +1,5 @@
 from pathlib import Path
+from typing import Any
 from PIL import Image
 import numpy as np
 
@@ -9,10 +10,11 @@ try:
     from fracture_segmentation import load_model as fs_load_model  # <- adjust if the package exposes a different symbol
     from fracture_segmentation import predict as fs_predict      # <- adjust if needed
     _HAS_FS = True
-except Exception:
+except (ImportError, ModuleNotFoundError):
     fs_load_model = None
     fs_predict = None
     _HAS_FS = False
+
 
 def load_model(model_path: Path):
     """Wrapper: load model either via fracture-segmentation package or raise helpful error."""
@@ -24,7 +26,8 @@ def load_model(model_path: Path):
         "If you intended to use a local copy, ensure PYTHONPATH includes it."
     )
 
-def predict(image: Image.Image, model) -> dict:
+
+def predict(image: Image.Image, model: Any) -> dict:
     """Wrapper: if fracture-segmentation provides predict, call it; otherwise return placeholder."""
     if _HAS_FS and fs_predict is not None:
         # pass through to the fracture-segmentation prediction function (adjust signature if needed)
