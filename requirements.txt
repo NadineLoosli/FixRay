@@ -1,0 +1,12 @@
+# Minimalbeispiel für ein Python ML-Projekt — passe Versionen an
+numpy
+pillow
+pytest
+# Optional (uncomment if used)
+# torch
+# torchvision
+# scikit-image
+# opencv-python
+
+# Install fracture-segmentation from your GitHub repo (pin to main)
+git+https://github.com/NadineLoosli/fracture-segmentation.git@main#egg=fracture_segmentation
