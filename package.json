@@ -1,0 +1,12 @@
+﻿{
+  "name": "fixray-site",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "test": "jest --runInBand",
+    "build": "echo \"Nothing to build; public/ already contains site\""
+  },
+  "devDependencies": {
+    "jest": "^29.0.0"
+  }
+}

@@ -1,0 +1,32 @@
+﻿stages:
+  - test
+  - deploy
+
+test:
+  image: node:18
+  stage: test
+  before_script:
+    - npm ci
+  script:
+    - npm test
+  rules:
+    - if: ' == "merge_request_event"'
+      when: always
+    - if: ''
+      when: always
+    - when: never
+
+pages:
+  image: node:18
+  stage: deploy
+  script:
+    - npm ci
+    - npm run build
+  artifacts:
+    paths:
+      - public
+    expire_in: 1 week
+  rules:
+    - if: ' == "main"'
+      when: on_success
+    - when: never
