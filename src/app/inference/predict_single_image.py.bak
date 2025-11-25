@@ -1,6 +1,7 @@
 ﻿# shim: importiere predict_single_image aus src Package
 from src.inference.predict_single_image import *
 
+
 # Minimal stub to avoid import recursion and allow the app to run.
 from typing import Any, Dict
 from PIL import Image

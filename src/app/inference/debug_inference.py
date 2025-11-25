@@ -1,4 +1,4 @@
-from src.inference.predict_single_image import CONFIG
+from bla.src_01.app.inference.predict_single_image import CONFIG
 from PIL import Image
 from torchvision import transforms
 import torch, sys, traceback, numpy as np, inspect, importlib

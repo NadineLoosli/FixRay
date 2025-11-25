@@ -20,3 +20,4 @@ __pycache__/
 # Model weights
 models/results/
 streamlit.log
+/results/

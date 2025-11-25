@@ -1,9 +1,0 @@
-streamlit
-Pillow
-numpy
-torch
- torchvision
-scikit-learn
-matplotlib
-opencv-python
-pytest

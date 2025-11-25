@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="334043ad-607f-4ef5-a1ba-234b1ec17a1b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitlab-ci.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitmodules" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/FixRay.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/FixRay.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Architectur-Sichten (4+1 View Model).adoc" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Architectur-Sichten (4+1 View Model).adoc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CONTRIBUTING.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Entwicklung KI-Software zur Frakturerkennung" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TESTING.md" beforeDir="false" afterPath="$PROJECT_DIR$/tests/TESTING.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UML Diagramm.adoc" beforeDir="false" afterPath="$PROJECT_DIR$/docs/UML Diagramm.adoc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Was hast du mit dem fracture-segmentation-Repository gemacht" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/architecture.adoc" beforeDir="false" afterPath="$PROJECT_DIR$/docs/architecture.adoc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/checkpoint_inspect.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/create-ci-and-tests.ps1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/debug_out.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/UseCase.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/Vision.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fixray-streamlit-app/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fixray-streamlit-app/models" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fixray-streamlit-app/outputs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fixray-streamlit-app/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fixray-streamlit-app/src/app.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fixray-streamlit-app/src/components/ui.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fixray-streamlit-app/src/config.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fixray-streamlit-app/src/inference/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fixray-streamlit-app/src/inference/predict_single_image.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fixray-streamlit-app/src/pages/upload.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fixray-streamlit-app/src/utils/file_helpers.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fixray-streamlit-app/tests/test_predict.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fracture-segmentation" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/fracture-segmentation" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load_model_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/load_model_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/predict single image" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pyproject.toml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resp.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/resp.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/fracture_analysis_20251109_210137.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/fracture_analysis_20251109_210410.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/fracture_analysis_20251110_105747.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/fracture_analysis_20251110_200648.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/fracture_analysis_20251110_200921.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/fracture_analysis_20251110_200954.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/fracture_analysis_20251110_201413.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/fracture_analysis_20251110_201450.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/fracture_analysis_20251110_201537.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/fracture_analysis_20251110_201652.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/fracture_analysis_20251110_201824.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/fracture_analysis_20251110_201842.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/fracture_analysis_20251110_202056.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/fracture_analysis_20251110_203358.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/fracture_analysis_20251110_203416.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/fracture_analysis_20251110_203628.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/fracture_analysis_20251110_203835.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/fracture_analysis_20251110_204311.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/fracture_analysis_20251110_204334.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/fracture_analysis_20251110_204345.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/fracture_analysis_20251110_204454.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/fracture_analysis_20251110_204504.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/fracture_analysis_20251110_211053.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/fracture_analysis_20251110_211126.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/fracture_analysis_20251110_211146.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/tmp17j266e2_annotated.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/tmp82wcv94f_annotated.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/tmph4ua71pe_annotated.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/tmph78qwmj3_annotated.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/tmpilnp8qch_annotated.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/tmpnvik7mca_annotated.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/tmpr17ci34u_annotated.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/tmprn7wztre_annotated.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/tmpwd3jg162_annotated.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_streamlit.ps1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/bootstrap_submodules.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/inspect_checkpoint.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/test_load.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fixray/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fixray/predict.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/inference/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/inference/compute_threshold.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/inference/debug_inference.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/inference/main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/inference/model.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/inference/predict_single_image.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/inference/predict_single_image.py.bak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/inference/test_streamlit.py" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="HTTP Request" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;ofenabruf&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/NadineLoosli/FixRay.git&quot;,
+    &quot;accountId&quot;: &quot;523b114a-7246-4d66-8403-5adb7e1bb1da&quot;
+  }
+}</component>
+  <component name="HttpClientOnboardingState">{
+  &quot;isOnboardingCommentShown&quot;: true
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="35yKebSvSqiTehR51LGHH3aA1bM" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.file_helpers.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/surakaraburun/PycharmProjects/FixRay/src_01/fixray&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src_01/fixray" />
+      <recent name="$PROJECT_DIR$/docs" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/" />
+      <recent name="$PROJECT_DIR$/.venv" />
+      <recent name="$PROJECT_DIR$/bla" />
+      <recent name="$PROJECT_DIR$/src_01/app/inference" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-4e2b1448bda8-9a97661f3031-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-252.27397.106" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="334043ad-607f-4ef5-a1ba-234b1ec17a1b" name="Changes" comment="" />
+      <created>1764076968709</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1764076968709</updated>
+    </task>
+    <servers />
+  </component>
+</project>
