@@ -1,0 +1,53 @@
+=== UML-Klassendiagramm FixRay
+
+[plantuml, uml-klassendiagramm-fixray, png]
+----
+@startuml
+skinparam classAttributeIconSize 0
+
+class Case {
+  - caseId : String
+  - imagePath : Path
+  - prediction : Prediction
+  --
+  + Case(caseId : String, imagePath : Path)
+  + getCaseId() : String
+  + getImagePath() : Path
+  + getPrediction() : Prediction
+  + setPrediction(p : Prediction) : void
+}
+
+class Prediction {
+  - type : String
+  - aoCode : String
+  - confidence : double
+  --
+  + Prediction(type : String, aoCode : String, confidence : double)
+  + getType() : String
+  + getAoCode() : String
+  + getConfidence() : double
+  + toString() : String
+}
+
+class ImageAnalysisService {
+  + analyze(c : Case) : void
+}
+
+class CaseManagementService {
+  + createCase(imagePath : Path) : Case
+  + loadImage(filePath : Path) : Case
+}
+
+class FixRayApp {
+  + start() : void
+  - loadImageAction() : void
+  - analyzeAction() : void
+}
+
+FixRayApp --> CaseManagementService : nutzt
+FixRayApp --> ImageAnalysisService : ruft auf
+CaseManagementService --> Case : erzeugt
+ImageAnalysisService --> Case : liest / schreibt
+Case "1" o-- "0..1" Prediction : enthält
+@enduml
+----

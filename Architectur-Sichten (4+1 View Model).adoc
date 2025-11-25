@@ -1,0 +1,96 @@
+== Architektur
+
+=== 4+1 View Model der FixRay-Softwarearchitektur
+
+Die Architektur von FixRay basiert auf dem 4+1-View-Modell nach Kruchten. Sie beschreibt das System aus verschiedenen Perspektiven, um eine vollständige, nachvollziehbare und regulatorisch konforme Darstellung zu gewährleisten.
+
+== Logical View (Logische Sicht)
+
+Die logische Sicht beschreibt die zentralen funktionalen Bausteine des Systems und deren Beziehungen.
+
+*Hauptkomponenten:*
+- *Case*: Repräsentiert einen diagnostischen Fall (Fall-ID, Bildpfad, Prediction).
+- *Prediction*: Enthält das Analyseergebnis (Frakturtyp, AO-Klassifikation, Confidence).
+- *ImageAnalysisService*: Führt die KI-Analyse aus.
+- *CaseManagementService*: Verantwortlich für Fallverwaltung und Bildimport.
+- *FixRayApp (UI)*: Präsentationsschicht (JavaFX), die Interaktionen auslöst.
+
+*Wichtige Beziehungen:*
+- Ein *Case* besitzt genau eine *Prediction* (nach Analyse).
+- Die UI triggert Services, die wiederum das Domain-Modell aktualisieren.
+- Die Prediction wird zurück an die UI gegeben und angezeigt.
+
+== Development View (Entwicklungssicht)
+
+Diese Sicht beschreibt, wie der Code strukturiert ist, um Wartbarkeit, Erweiterbarkeit und Teamarbeit zu gewährleisten.
+
+*Projekstruktur (Ausschnitt):*
+----
+src/
+ ├─ ui/                      # JavaFX-Oberfläche
+ ├─ application/             # Services (Use-Case-Logik)
+ ├─ domain/                  # Kernmodell (Case, Prediction, Study)
+ ├─ infrastructure/          # KI, Datei-Handling, Logging
+tests/
+docs/
+----
+
+*Branching-Strategie:*
+- *main*: stabile Versionen
+- *feature/xyz*: neue Funktionen
+- *bugfix/xyz*: Fehlerkorrekturen
+- Optional: *release/* für spätere Versionierung
+
+Diese Struktur folgt Clean-Architecture-Prinzipien und unterstützt MDR-konforme Nachvollziehbarkeit.
+
+== Process View (Prozesssicht)
+
+Die Prozesssicht beschreibt das Laufzeitverhalten des Systems.
+
+*Wesentliche Prozesse:*
+- *UI-Thread*: steuert alle Nutzerinteraktionen (JavaFX).
+- *Analyseprozess*: führt Bildanalyse mit Dummy-KI aus (später asynchron mit CNN).
+- *Fehlerbehandlungsprozess*: stellt sicher, dass Fehlermeldungen sicher kommuniziert werden (MDR-Konformität).
+
+*Datenfluss (vereinfacht):*
+1. Nutzer lädt ein Bild → neues *Case* wird erstellt.
+2. ImageAnalysisService analysiert den Fall.
+3. Prediction wird berechnet und im Case gespeichert.
+4. UI aktualisiert Anzeige.
+
+== Physical View (Physische Sicht)
+
+Die physische Sicht zeigt, auf welcher Hardware und in welchen Systemumgebungen FixRay betrieben werden kann.
+
+*MVP-Betrieb:*
+- Lokaler Client: Laptop/PC mit JavaFX
+- Lokale Verarbeitung der Bilder
+- Keine Netzwerkanbindung erforderlich
+
+*Zielarchitektur (medizinisches Umfeld):*
+- *Client-Workstation*: Radiologie-PC (UI)
+- *KI-Server / GPU-Node*: CNN-/LLM-Inferenz
+- *PACS-Anbindung*: DICOM (C-STORE, Query/Retrieve)
+- *Audit/Logging-Server*: MDR-konformes Logging
+
+== Scenarios (Use-Case-Szenarien)
+
+Die Szenarien verbinden alle Sichten und zeigen konkrete Abläufe.
+
+=== UC01 – Röntgenbild laden
+. Nutzer klickt auf „Bild laden“.
+. UI öffnet FileChooser.
+. Bild wird als *Case* gespeichert.
+. Case-ID wird generiert und angezeigt.
+
+=== UC02 – Analyse starten
+. System ruft ImageAnalysisService auf.
+. Prediction wird berechnet und dem Case zugeordnet.
+. UI zeigt Frakturtyp, AO-Code und Confidence.
+
+=== UC03 – Analyse-Ergebnis einsehen
+. Nutzer betrachtet Prediction.
+. Hinweis „KI-Empfehlung – ersetzt keine Diagnose“ wird angezeigt.
+. Optional vergleicht Radiolog*in mit eigener Einschätzung.
+
+Diese Szenarien zeigen, wie Logik, Prozessverhalten und physische Umgebung zusammenwirken.

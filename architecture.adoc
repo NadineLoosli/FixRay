@@ -1,0 +1,43 @@
+Architekturüberblick (High Level View)
+
+1. Presentation Layer- GUI (JavaFX)
+(JavaFX UI, Darstellung von Bildern & Predictions)
+2. Application Layer
+Use Cases: Bild laden, Analyse starten, Reporting
+3. Domain Layer
+Core Entities: Case, Image, Prediction, Study
+4. Infrastructure Layer
+(KI-Modelle, Dateizugriff, Loggin, PACS-Anbindung)
+
+
+
+= Hauptkomponenten und Verantwortlichkeiten
+
+Presentation Layer-GUI
+FileChooser für Bildimport (UC01)
+Bildanzeige in ImageView
+Darstellung der Predictions (UC02, UC03)
+Fehler- und Info-Meldungen
+
+= Application Layer Use Case Logik
+
+- CaseManagementService
+- ImageAnalysisService
+- PredictionFormatter
+
+- Domain Layer - Kernmodell
+(Zentrale Entitäten)
+
+-Case (Enthält Fall-ID, Bildpfad, Zeitstempel, Prediction)
+
+- Prediction
+- Frakturtyp
+- AO-Code
+- Confidence
+
+- Image (optional, falls DICOM/PACS später ergänzt)
+- User (später Radiologe / OP-Personal)
+- Study (geplant für PACS-Integration)
+
+
+
