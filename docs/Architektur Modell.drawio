@@ -1,0 +1,88 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0" version="29.2.1">
+  <diagram name="Seite-1" id="u0jbxAQAbXOFlSzL-uF9">
+    <mxGraphModel dx="1027" dy="1001" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="8uj0Z2zAvfR36wwantjT-50" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;fontStyle=1" value="Präsentationsschicht (UI)" vertex="1">
+          <mxGeometry height="125" width="440" x="310" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="8uj0Z2zAvfR36wwantjT-51" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;fontStyle=1" value="Domänen-/&amp;nbsp;&lt;div&gt;Anwendugsschicht&lt;/div&gt;" vertex="1">
+          <mxGeometry height="380" width="440" x="310" y="224" as="geometry" />
+        </mxCell>
+        <mxCell id="8uj0Z2zAvfR36wwantjT-52" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="&lt;b&gt;Infrastruktur-/&lt;/b&gt;&lt;div&gt;&lt;b&gt;Persistenzschicht&lt;/b&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="270" width="440" x="310" y="620" as="geometry" />
+        </mxCell>
+        <mxCell id="8uj0Z2zAvfR36wwantjT-53" parent="1" style="verticalAlign=top;align=left;spacingTop=8;spacingLeft=2;spacingRight=12;shape=cube;size=10;direction=south;fontStyle=0;whiteSpace=wrap;points=[[0,0,0,0,0],[0,0,0,0,95],[0,0,0,0,190],[0,0,0,5,195],[0,0,0,10,200],[0,0,0,45,0],[0,0,0,55,200],[0,0,0,90,0],[0,0,0,95,5],[0,0,0,100,10],[0.2,1,0,0,0],[0.39,1,0,0,0],[1,1,0,0,0]];" value="FixRay Desktopapplikation&#xa;" vertex="1">
+          <mxGeometry height="86.5" width="200" x="470" y="103.5" as="geometry" />
+        </mxCell>
+        <mxCell id="8uj0Z2zAvfR36wwantjT-55" parent="1" style="html=1;whiteSpace=wrap;" value="Architekturmodell für FixRay!" vertex="1">
+          <mxGeometry height="50" width="440" x="310" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="8uj0Z2zAvfR36wwantjT-59" edge="1" parent="1" source="8uj0Z2zAvfR36wwantjT-56" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;" target="8uj0Z2zAvfR36wwantjT-58" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8uj0Z2zAvfR36wwantjT-60" edge="1" parent="1" source="8uj0Z2zAvfR36wwantjT-56" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;endArrow=none;endFill=0;" target="8uj0Z2zAvfR36wwantjT-57" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8uj0Z2zAvfR36wwantjT-81" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0;exitDx=0;exitDy=55;exitPerimeter=0;endArrow=none;endFill=0;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="537.47" y="240" />
+            </Array>
+            <mxPoint x="512.47" y="240" as="sourcePoint" />
+            <mxPoint x="537.5288235294117" y="190" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="8uj0Z2zAvfR36wwantjT-56" parent="1" style="verticalAlign=top;align=left;spacingTop=8;spacingLeft=2;spacingRight=12;shape=cube;size=10;direction=south;fontStyle=0;whiteSpace=wrap;" value="Fall-Management:&#xa;&#xa;-Fall Auswählen&#xa;&#xa;" vertex="1">
+          <mxGeometry height="110" width="120" x="460" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="8uj0Z2zAvfR36wwantjT-83" edge="1" parent="1" source="8uj0Z2zAvfR36wwantjT-57" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;" target="8uj0Z2zAvfR36wwantjT-65" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8uj0Z2zAvfR36wwantjT-57" parent="1" style="verticalAlign=top;align=left;spacingTop=8;spacingLeft=2;spacingRight=12;shape=cube;size=10;direction=south;fontStyle=0;whiteSpace=wrap;" value="KI-Service (Domain Services):&#xa;&#xa;-ResNet (Fraktur-Score, Klassifikation)&#xa;-FracAtlas-Service (Segmentierung/Heatmap" vertex="1">
+          <mxGeometry height="110" width="260" x="460" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="8uj0Z2zAvfR36wwantjT-61" edge="1" parent="1" source="8uj0Z2zAvfR36wwantjT-58" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;endArrow=none;endFill=0;" target="8uj0Z2zAvfR36wwantjT-57" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8uj0Z2zAvfR36wwantjT-58" parent="1" style="verticalAlign=top;align=left;spacingTop=8;spacingLeft=2;spacingRight=12;shape=cube;size=10;direction=south;fontStyle=0;whiteSpace=wrap;" value="Bild-Analyse:&#xa;&#xa;-Auswahl eines Bildes aus Fall&#xa;&#xa;" vertex="1">
+          <mxGeometry height="110" width="110" x="610" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="8uj0Z2zAvfR36wwantjT-84" edge="1" parent="1" source="8uj0Z2zAvfR36wwantjT-65" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0;entryDx=0;entryDy=60;entryPerimeter=0;exitX=0.909;exitY=0.731;exitDx=0;exitDy=0;exitPerimeter=0;endArrow=none;endFill=0;" target="8uj0Z2zAvfR36wwantjT-69" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8uj0Z2zAvfR36wwantjT-65" parent="1" style="verticalAlign=top;align=left;spacingTop=8;spacingLeft=2;spacingRight=12;shape=cube;size=10;direction=south;fontStyle=0;html=1;whiteSpace=wrap;" value="Report-Service:&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;-Erstell des Reports&lt;/div&gt;" vertex="1">
+          <mxGeometry height="66" width="260" x="460" y="510" as="geometry" />
+        </mxCell>
+        <mxCell id="8uj0Z2zAvfR36wwantjT-88" edge="1" parent="1" source="8uj0Z2zAvfR36wwantjT-69" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;" target="8uj0Z2zAvfR36wwantjT-72" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8uj0Z2zAvfR36wwantjT-69" parent="1" style="verticalAlign=top;align=left;spacingTop=8;spacingLeft=2;spacingRight=12;shape=cube;size=10;direction=south;fontStyle=0;html=1;whiteSpace=wrap;" value="KIS:&lt;div&gt;&lt;br&gt;Zugriff auf Fall- und Patienten-ID&#39;s (pseudonymisiert)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="100" width="130" x="460" y="630" as="geometry" />
+        </mxCell>
+        <mxCell id="8uj0Z2zAvfR36wwantjT-89" edge="1" parent="1" source="8uj0Z2zAvfR36wwantjT-70" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;" target="8uj0Z2zAvfR36wwantjT-71" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8uj0Z2zAvfR36wwantjT-70" parent="1" style="verticalAlign=top;align=left;spacingTop=8;spacingLeft=2;spacingRight=12;shape=cube;size=10;direction=south;fontStyle=0;html=1;whiteSpace=wrap;" value="PACS/ DICOM:&lt;div&gt;&lt;br&gt;&lt;div&gt;Laden und Speihern von Röntgenbildern&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="100" width="112.5" x="607.5" y="630" as="geometry" />
+        </mxCell>
+        <mxCell id="8uj0Z2zAvfR36wwantjT-85" edge="1" parent="1" source="8uj0Z2zAvfR36wwantjT-71" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;" target="8uj0Z2zAvfR36wwantjT-72" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8uj0Z2zAvfR36wwantjT-71" parent="1" style="verticalAlign=top;align=left;spacingTop=8;spacingLeft=2;spacingRight=12;shape=cube;size=10;direction=south;fontStyle=0;html=1;whiteSpace=wrap;" value="Logging/ Monitor:&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Technische Logs, Audit-Trail für Nachvollziehbarkeit&lt;/div&gt;" vertex="1">
+          <mxGeometry height="120" width="112.5" x="608.75" y="750" as="geometry" />
+        </mxCell>
+        <mxCell id="8uj0Z2zAvfR36wwantjT-72" parent="1" style="verticalAlign=top;align=left;spacingTop=8;spacingLeft=2;spacingRight=12;shape=cube;size=10;direction=south;fontStyle=0;html=1;whiteSpace=wrap;" value="Datenbank /Storage:&lt;div&gt;&lt;br&gt;&lt;div&gt;Speicherung von Fällen, Analyse-Metadaten, Reports&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="120" width="120" x="465" y="750" as="geometry" />
+        </mxCell>
+        <mxCell id="8uj0Z2zAvfR36wwantjT-86" edge="1" parent="1" source="8uj0Z2zAvfR36wwantjT-70" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.558;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0;exitY=0;exitDx=55;exitDy=112.5;exitPerimeter=0;endArrow=none;endFill=0;" target="8uj0Z2zAvfR36wwantjT-69" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="607.5" y="679.41" as="sourcePoint" />
+            <mxPoint x="580" y="679" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
