@@ -1,3 +1,5 @@
+# src/app/main.py
+
 import sys
 import os
 import io
@@ -7,7 +9,7 @@ import tempfile
 import streamlit as st
 from PIL import Image
 
-# --------- Pfade einrichten ---------
+# --------- Pfade einrichten, damit app.inference importierbar ist ---------
 THIS_DIR = Path(__file__).resolve().parent      # .../src/app
 SRC_DIR = THIS_DIR.parent                       # .../src
 
@@ -19,7 +21,7 @@ from app.inference.predict_single_image import load_model, analyze_image, CONFIG
 
 # --------- Streamlit Grundkonfiguration ---------
 st.set_page_config(
-    page_title="FixRay — Frakturerkennung",
+    page_title="FixRay — Frakturerkennung (Heuristik)",
     layout="centered",
 )
 
@@ -45,7 +47,6 @@ st.markdown(
         margin-bottom: 1.5rem;
     }
 
-    /* Upload-Card Styling */
     .upload-wrapper {
         margin-top: 1.2rem;
         margin-bottom: 1.8rem;
@@ -73,9 +74,8 @@ st.markdown(
         margin-top: 0.25rem;
     }
 
-    /* Streamlit FileUploader-Optik anpassen */
     [data-testid="stFileUploader"] > label {
-        display: none;  /* Standard-Text ausblenden */
+        display: none;
     }
     [data-testid="stFileUploader"] section[data-testid="stFileUploaderDropzone"] {
         border-radius: 0.85rem;
@@ -93,29 +93,52 @@ st.markdown(
 
 # --------- Header ---------
 st.markdown(
-    '<div class="title">FixRay — KI-gestützte Frakturerkennung</div>',
+    '<div class="title">FixRay — heuristische Frakturerkennung</div>',
     unsafe_allow_html=True,
 )
 st.markdown(
-    '<div class="subtitle">Prototyp mit vortrainiertem CNN (ResNet18).</div>',
+    '<div class="subtitle">Prototyp mit einfacher Helligkeits-Heuristik. '
+    'Kein medizinisches Produkt, ersetzt keine ärztliche Diagnose.</div>',
     unsafe_allow_html=True,
 )
 
-# --------- Sidebar minimal ---------
+# --------- Sidebar ---------
 st.sidebar.header("Prototyp")
-st.sidebar.caption("Ersetzt keine ärztliche Diagnose.")
+st.sidebar.caption("Nur zu Demonstrations- und Lehrzwecken.")
 
-# feste Schwelle aus CONFIG (wird intern verwendet, aber nicht angezeigt)
-confidence = float(CONFIG.get("confidence_threshold", 0.5))
+confidence = st.sidebar.slider(
+    "Helligkeitsschwelle für Frakturerkennung",
+    min_value=0.0,
+    max_value=0.5,
+    value=float(CONFIG.get("confidence_threshold", 0.15)),
+    step=0.01,
+    help=(
+        "Je niedriger die Schwelle, desto empfindlicher reagiert die Heuristik "
+        "(mehr mögliche Frakturen, aber mehr Fehlalarme). "
+        "Je höher die Schwelle, desto strenger wird entschieden "
+        "(weniger Funde, aber eher nur deutliche Helligkeitssprünge)."
+    ),
+)
+
+st.sidebar.markdown(f"Aktuelle Schwelle: **{confidence:.2f}**")
 
 
-# --------- Modell lazy laden ---------
+# --------- Modell lazy laden (hier Dummy, aber kompatibel) ---------
 @st.cache_resource
 def get_model():
-    return load_model(device=CONFIG.get("device", "cpu"))
+    # Für diese Heuristik wird kein echtes Modell benötigt.
+    # Die Funktion bleibt, damit der App-Code stabil ist.
+    try:
+        model = load_model(
+            model_path=CONFIG.get("model_path", None),
+            device=CONFIG.get("device", None),
+        )
+        return model
+    except Exception as e:
+        return e
 
 
-# --------- Upload-Bereich mit eigener Karte ---------
+# --------- Upload-Bereich ---------
 st.markdown('<div class="upload-wrapper">', unsafe_allow_html=True)
 st.markdown(
     """
@@ -140,7 +163,7 @@ if uploaded is None:
     st.info("Bitte ein Röntgenbild hochladen, um die Analyse zu starten.")
     st.stop()
 
-# Datei-Inhalt EINMAL lesen und wiederverwenden
+# Datei-Inhalt EINMAL lesen
 uploaded_bytes = uploaded.read()
 if not uploaded_bytes:
     st.error("Die hochgeladene Datei ist leer oder konnte nicht gelesen werden.")
@@ -158,25 +181,31 @@ with col1:
     st.subheader("Originalbild")
     st.image(img, use_container_width=True)
 
-# Temporäre Datei für die Inferenz anlegen
+# Temporäre Datei für die Analyse anlegen
 suffix = os.path.splitext(uploaded.name)[1] or ".png"
 with tempfile.NamedTemporaryFile(delete=False, suffix=suffix) as tmp:
     tmp.write(uploaded_bytes)
     tmp_path = tmp.name
 
-# Modell laden
-with st.spinner("Modell wird geladen…"):
+# Modell laden (Dummy oder Fehlerobjekt)
+with st.spinner("Vorbereitung der Analyse…"):
+    model_or_err = get_model()
+
+if isinstance(model_or_err, Exception):
+    st.error(f"Fehler beim Laden des Modells / der Heuristik: {model_or_err}")
     try:
-        model = get_model()
-    except Exception as e:
-        st.error(f"Fehler beim Laden des Modells: {e}")
-        st.stop()
+        os.remove(tmp_path)
+    except OSError:
+        pass
+    st.stop()
+else:
+    model = model_or_err
 
 st.divider()
 st.subheader("Analyse")
 
 try:
-    with st.spinner("Fraktur wird analysiert…"):
+    with st.spinner("Heuristische Frakturerkennung wird ausgeführt…"):
         res = analyze_image(
             image_path=tmp_path,
             model=model,
@@ -184,20 +213,29 @@ try:
             confidence_threshold=confidence,
         )
 except Exception as e:
-    st.error(f"Fehler während der Inferenz: {e}")
+    st.error(f"Fehler während der Analyse: {e}")
+    try:
+        os.remove(tmp_path)
+    except OSError:
+        pass
     st.stop()
 
-# Ergebnis auswerten – OHNE Score im Text
+# Ergebnis auswerten
 if res.get("status") != "SUCCESS":
     st.error("Analyse fehlgeschlagen: " + str(res.get("error_message", res)))
 else:
     frac = res.get("fracture")
-    # score = res.get("score", 0.0)  # nur intern, wird nicht angezeigt
+    score = res.get("score", 0.0)
 
     if frac:
-        st.error("Ja: Fraktur vorhanden.")
+        st.error(f"Ja: mögliche Fraktur erkannt (Heuristik-Score: {score:.3f}).")
     else:
-        st.success("Nein: keine Fraktur vorhanden.")
+        st.success(f"Nein: keine deutliche Frakturlinie erkannt (Score: {score:.3f}).")
+
+    st.caption(
+        "Hinweis: Die Entscheidung basiert auf einer einfachen Helligkeits-Heuristik "
+        "entlang zentraler Bildachsen und ist nicht klinisch validiert."
+    )
 
     out_img_path = res.get("output_image")
     if out_img_path and os.path.exists(out_img_path):

@@ -1,174 +1,149 @@
-﻿import os
+﻿# src/app/inference/predict_single_image.py
+
+import os
 from pathlib import Path
-from typing import Any, Dict
 
 import numpy as np
 from PIL import Image, ImageDraw
-import torch
-from torchvision import models, transforms
 
+# ----------------------------------------------------
+# "CONFIG" – nur noch für Heuristik, kein echtes KI-Modell
+# ----------------------------------------------------
 
-# Basisverzeichnis: .../FixRay
-BASE_DIR = Path(__file__).resolve().parents[3]
-
-CONFIG: Dict[str, Any] = {
-    "model_name": "resnet18",
-    "device": "cpu",  # wird in load_model ggf. überschrieben
-    "confidence_threshold": 0.5,
-    "output_dir": str(BASE_DIR / "results" / "inference_outputs"),
+CONFIG = {
+    # wird von main.py gelesen, aber wir nutzen kein echtes Modell
+    "device": "cpu",
+    # Standard-Schwelle für die Helligkeits-Heuristik
+    "confidence_threshold": 0.15,
+    # wohin annotierte Bilder geschrieben werden
+    "output_dir": "results",
 }
 
 
-def load_model(device: str = "cpu") -> Dict[str, Any]:
+# ----------------------------------------------------
+# Dummy-Model-Loader (wird von main.py aufgerufen)
+# ----------------------------------------------------
+
+def load_model(model_path: str | None = None, device=None):
     """
-    Lädt ein vortrainiertes ResNet18 (ImageNet) aus torchvision.
-    Es ist ein echtes Deep-Learning-Modell, aber NICHT auf Frakturbildern
-    trainiert – dient als KI-Demonstrator.
+    FixRay erwartet eine load_model-Funktion.
+    Für die einfache Heuristik brauchen wir aber kein echtes Modell.
+    Diese Funktion gibt deshalb einfach None zurück, wir ignorieren 'model'
+    später in analyze_image.
     """
-    model = models.resnet18(pretrained=True)
-    model.eval()
-
-    if device == "cuda" and not torch.cuda.is_available():
-        device = "cpu"
-
-    model.to(device)
-
-    # Output-Verzeichnis anlegen
-    out_dir = Path(CONFIG["output_dir"])
-    out_dir.mkdir(parents=True, exist_ok=True)
-
-    cfg = CONFIG.copy()
-    cfg["device"] = device
-    cfg["net"] = model
-    return cfg
+    return None
 
 
-# Bildvorverarbeitung für ResNet (ImageNet-Standard)
-_PREPROCESS = transforms.Compose(
-    [
-        transforms.Resize(256),
-        transforms.CenterCrop(224),
-        transforms.ToTensor(),
-        transforms.Normalize(
-            mean=[0.485, 0.456, 0.406],
-            std=[0.229, 0.224, 0.225],
-        ),
-    ]
-)
+# ----------------------------------------------------
+# Heuristische Fraktur-Erkennung
+# ----------------------------------------------------
 
-
-def _compute_fracture_score(img: Image.Image, model_cfg: Dict[str, Any]) -> float:
+def analyze_image(image_path, model, output_dir=None, confidence_threshold=0.15):
     """
-    Führt das Bild durch das vortrainierte ResNet und berechnet
-    einen pseudo-„Fraktur-Score“ aus den Logits.
+    Sehr einfache, Helligkeits-basierte Heuristik:
 
-    Technisch:
-      - Wir nehmen den maximalen Logit aus den 1000 ImageNet-Klassen
-      - wenden eine Sigmoid-Funktion an → Wert in [0, 1]
+    Idee:
+    - Röntgenbild ist hell, Knochen sind hell, Spalten / Fraktur-Linien
+      sind oft dunkler.
+    - Wir betrachten die zentrale Vertikal- und Horizontallinie im Bild
+      und messen, ob es dort einen starken Helligkeitsabfall gibt
+      (hell -> deutlich dunkler).
+
+    Vorgehen:
+    - Bild nach 512x512 skalieren
+    - Grauwertbild (0..1)
+    - zentrale Vertikal-Linie und Horizontal-Linie extrahieren
+    - für jede Linie:
+        gap = mean(line) - min(line)
+      (d.h. wie viel dunkler ist der dunkelste Punkt im Vergleich zum Rest)
+    - score = max(vert_gap, horiz_gap)
+    - Wenn score >= confidence_threshold -> "Fraktur: JA", sonst "NEIN".
+
+    WICHTIG:
+    Das ist KEINE medizinisch valide Erkennung, sondern nur eine
+    anschauliche Demo-Heuristik für den Prototyp.
     """
-    device = model_cfg["device"]
-    net = model_cfg["net"]
 
-    img_t = _PREPROCESS(img).unsqueeze(0).to(device)
-
-    with torch.no_grad():
-        logits = net(img_t)  # Shape: [1, 1000]
-        max_logit = logits.max().item()
-
-    # Sigmoid → 0..1
-    score = float(torch.sigmoid(torch.tensor(max_logit)).item())
-    return score
-
-
-def _annotate_image(
-    img: Image.Image,
-    fracture: bool,
-    score: float,
-) -> Image.Image:
-    """
-    Zeichnet einen Balken mit Text auf das Bild:
-      - Rot: Fraktur-Verdacht
-      - Grün: kein Fraktur-Verdacht
-    """
-    annotated = img.convert("RGB").copy()
-    draw = ImageDraw.Draw(annotated)
-
-    width, height = annotated.size
-    bar_height = int(height * 0.08)
-
-    if fracture:
-        bar_color = (180, 40, 40)
-        text = f"Fraktur-Verdacht (Score: {score:.2f})"
-    else:
-        bar_color = (40, 160, 80)
-        text = f"Keine Fraktur detektiert (Score: {score:.2f})"
-
-    # Balken am oberen Bildrand
-    draw.rectangle(
-        [(0, 0), (width, bar_height)],
-        fill=bar_color,
-    )
-
-    # Text
-    text_x = int(width * 0.02)
-    text_y = int(bar_height * 0.25)
-    draw.text((text_x, text_y), text, fill=(255, 255, 255))
-
-    return annotated
-
-
-def analyze_image(
-    image_path: str,
-    model: Dict[str, Any],
-    output_dir: str | None = None,
-    confidence_threshold: float | None = None,
-) -> Dict[str, Any]:
-    """
-    Analysiert ein Bild mit dem vortrainierten ResNet und gibt
-    ein Ergebnis-Dict zurück:
-
-      {
-        "status": "SUCCESS",
-        "fracture": bool,
-        "score": float,
-        "output_image": str (Pfad)
-      }
-    """
-    try:
-        img = Image.open(image_path).convert("RGB")
-    except Exception as exc:  # noqa: BLE001
-        return {
-            "status": "ERROR",
-            "error_message": f"Bild kann nicht geladen werden: {exc}",
-        }
+    if output_dir is None:
+        output_dir = CONFIG.get("output_dir", "results")
 
     if confidence_threshold is None:
-        confidence_threshold = float(model.get("confidence_threshold", 0.5))
+        confidence_threshold = CONFIG.get("confidence_threshold", 0.15)
 
-    score = _compute_fracture_score(img, model_cfg=model)
-    fracture = score >= confidence_threshold
+    # Bild laden
+    try:
+        orig_img = Image.open(image_path).convert("RGB")
+    except Exception as e:
+        return {
+            "status": "ERROR",
+            "error_message": f"Bild konnte nicht geladen werden: {e}",
+        }
 
-    # Ausgabe-Verzeichnis
-    if output_dir is None:
-        output_dir = model.get(
-            "output_dir",
-            str(BASE_DIR / "results" / "inference_outputs"),
-        )
+    # Arbeitsbild vereinheitlichen (512x512, Graustufen)
+    work_img = orig_img.resize((512, 512))
+    gray = work_img.convert("L")
+    arr = np.asarray(gray).astype("float32") / 255.0  # Werte 0..1
 
-    out_dir = Path(output_dir)
-    out_dir.mkdir(parents=True, exist_ok=True)
+    h, w = arr.shape
 
-    # Dateiname für annotiertes Bild
-    base_name = os.path.basename(image_path)
-    name_no_ext, _ = os.path.splitext(base_name)
-    out_path = out_dir / f"{name_no_ext}_annotated.png"
+    # zentrale Vertikal- und Horizontallinie
+    vert_line = arr[:, w // 2]
+    horiz_line = arr[h // 2, :]
 
-    annotated = _annotate_image(img, fracture=fracture, score=score)
-    annotated.save(out_path)
+    def gap_score(line: np.ndarray) -> float:
+        line_mean = float(line.mean())
+        line_min = float(line.min())
+        # Je größer der Unterschied, desto "dunklerer Spalt"
+        return max(0.0, line_mean - line_min)
+
+    vert_gap = gap_score(vert_line)
+    horiz_gap = gap_score(horiz_line)
+
+    # Score = maximaler Helligkeitssprung
+    score = max(vert_gap, horiz_gap)
+
+    # Schwellenentscheidung: JA/NEIN
+    fracture = score >= float(confidence_threshold)
+
+    # Für Visualisierung: dominante Linie und dunkelster Punkt bestimmen
+    if vert_gap >= horiz_gap:
+        dominant = "vertical"
+        line = vert_line
+        min_idx = int(np.argmin(line))
+    else:
+        dominant = "horizontal"
+        line = horiz_line
+        min_idx = int(np.argmin(line))
+
+    # Annotiertes Bild erzeugen
+    annotated = orig_img.copy()
+    draw = ImageDraw.Draw(annotated)
+    img_w, img_h = annotated.size
+
+    if fracture:
+        # Linie ungefähr dort einzeichnen, wo der "dunkelste" Bereich war
+        if dominant == "vertical":
+            # x ~ Bildmitte, y ~ Position des Minimums (umgerechnet)
+            x = img_w // 2
+            y = int(min_idx * (img_h / 512))
+            draw.line([(x, 0), (x, img_h)], fill=(255, 0, 0), width=3)
+        else:
+            y = img_h // 2
+            x = int(min_idx * (img_w / 512))
+            draw.line([(0, y), (img_w, y)], fill=(255, 0, 0), width=3)
+
+    # Datei speichern
+    out_path = None
+    if output_dir:
+        out_dir = Path(output_dir)
+        out_dir.mkdir(parents=True, exist_ok=True)
+        out_path = out_dir / "last_result_heuristic.png"
+        annotated.save(out_path)
 
     return {
         "status": "SUCCESS",
-        "fracture": fracture,
-        "score": score,
-        "output_image": str(out_path),
+        "fracture": bool(fracture),
+        "score": float(score),  # "Stärke" des Helligkeitssprungs
+        "method": "brightness_gap_heuristic",
+        "output_image": str(out_path) if out_path else None,
     }
