@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="334043ad-607f-4ef5-a1ba-234b1ec17a1b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/app/inference/frac_atlas.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/inference/predict_single_image.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/inference/predict_single_image.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/threshold_result.txt" beforeDir="false" />
+    <list default="true" id="334043ad-607f-4ef5-a1ba-234b1ec17a1b" name="Changes" comment="änderungen am main und predic single. slider eingefügt. heuristische suche eingefügt">
+      <change beforePath="$PROJECT_DIR$/tests/load_model_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/load_model_test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,6 +90,27 @@
       <option name="presentableId" value="Default" />
       <updated>1764076968709</updated>
     </task>
+    <task id="LOCAL-00001" summary="änderungen am main und predic single. slider eingefügt. heuristische suche eingefügt">
+      <option name="closed" value="true" />
+      <created>1764679787174</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1764679787174</updated>
+    </task>
+    <task id="LOCAL-00002" summary="änderungen am main und predic single. slider eingefügt. heuristische suche eingefügt">
+      <option name="closed" value="true" />
+      <created>1764679820814</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1764679820814</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="änderungen am main und predic single. slider eingefügt. heuristische suche eingefügt" />
+    <option name="LAST_COMMIT_MESSAGE" value="änderungen am main und predic single. slider eingefügt. heuristische suche eingefügt" />
   </component>
 </project>
