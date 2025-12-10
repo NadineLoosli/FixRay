@@ -1,9 +1,103 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36 Edg/143.0.0.0" version="29.2.6">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36 Edg/143.0.0.0" version="29.2.7">
   <diagram name="Seite-1" id="r6xKIJ4MFIyqKPDgNsQM">
-    <mxGraphModel dx="1293" dy="825" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+    <mxGraphModel dx="1697" dy="1707" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="JKZ3ICrF5GZtGqbKmoa0-24" edge="1" parent="1" source="JKZ3ICrF5GZtGqbKmoa0-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="JKZ3ICrF5GZtGqbKmoa0-23" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JKZ3ICrF5GZtGqbKmoa0-25" connectable="0" parent="JKZ3ICrF5GZtGqbKmoa0-24" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="User öffnet Report" vertex="1">
+          <mxGeometry relative="1" x="-0.1674" y="3" as="geometry">
+            <mxPoint x="-3" y="5" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JKZ3ICrF5GZtGqbKmoa0-17" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Draft:&amp;nbsp;&lt;div&gt;Report wurde von KI erzeugt&amp;nbsp;&lt;/div&gt;&lt;div&gt;(unsigned)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="70" width="130" x="405" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="JKZ3ICrF5GZtGqbKmoa0-27" edge="1" parent="1" source="JKZ3ICrF5GZtGqbKmoa0-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="JKZ3ICrF5GZtGqbKmoa0-26" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="420" y="320" />
+              <mxPoint x="420" y="320" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JKZ3ICrF5GZtGqbKmoa0-35" connectable="0" parent="JKZ3ICrF5GZtGqbKmoa0-27" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Freigeben (Status=freigegeben):&lt;div&gt;Freigabe speichert Report&lt;/div&gt;&lt;div&gt;fortlaufend als neue Version&lt;/div&gt;&lt;div&gt;zu Fall-ID&lt;/div&gt;" vertex="1">
+          <mxGeometry relative="1" x="-0.2649" y="-2" as="geometry">
+            <mxPoint x="32" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JKZ3ICrF5GZtGqbKmoa0-33" edge="1" parent="1" source="JKZ3ICrF5GZtGqbKmoa0-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="JKZ3ICrF5GZtGqbKmoa0-32" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="600" y="260" />
+              <mxPoint x="600" y="260" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JKZ3ICrF5GZtGqbKmoa0-36" connectable="0" parent="JKZ3ICrF5GZtGqbKmoa0-33" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Stornieren (Status=storno):&lt;div&gt;Stornieren speichert Report&lt;/div&gt;&lt;div&gt;fortlaufend als neue Version&lt;/div&gt;&lt;div&gt;zu Fall-ID&lt;/div&gt;" vertex="1">
+          <mxGeometry relative="1" x="-0.2856" y="-2" as="geometry">
+            <mxPoint x="32" y="7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JKZ3ICrF5GZtGqbKmoa0-23" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Review:&lt;br&gt;Report wird im UI zum gegenlesen angezeigt. Der Report kann bearbeitet werden.&amp;nbsp;&lt;div&gt;(unsigned)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="70" width="300" x="320" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="JKZ3ICrF5GZtGqbKmoa0-31" edge="1" parent="1" source="JKZ3ICrF5GZtGqbKmoa0-26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.082;entryY=1.014;entryDx=0;entryDy=0;entryPerimeter=0;" target="JKZ3ICrF5GZtGqbKmoa0-23" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="345" y="270" />
+              <mxPoint x="345" y="270" />
+            </Array>
+            <mxPoint x="400" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JKZ3ICrF5GZtGqbKmoa0-34" connectable="0" parent="JKZ3ICrF5GZtGqbKmoa0-31" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Korrektur anfordern" vertex="1">
+          <mxGeometry relative="1" x="-0.3461" y="-1" as="geometry">
+            <mxPoint x="-1" y="9" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JKZ3ICrF5GZtGqbKmoa0-42" edge="1" parent="1" source="JKZ3ICrF5GZtGqbKmoa0-26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0.75;exitY=1;exitDx=0;exitDy=0;" target="JKZ3ICrF5GZtGqbKmoa0-37" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="335" y="560" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JKZ3ICrF5GZtGqbKmoa0-45" connectable="0" parent="JKZ3ICrF5GZtGqbKmoa0-42" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;b&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;Endpunkt&lt;/font&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry relative="1" x="0.4913" y="-1" as="geometry">
+            <mxPoint x="61" y="44" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JKZ3ICrF5GZtGqbKmoa0-26" parent="1" style="whiteSpace=wrap;html=1;rounded=1;" value="Final:&lt;div&gt;Report kann nicht mehr bearbeitet werden&lt;/div&gt;&lt;div&gt;Report ist freigegeben unter Fall-ID.V...&lt;/div&gt;&lt;div&gt;(signed mit Zeitstempel + User, Statusfeld=freigegeben)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="310" x="180" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="JKZ3ICrF5GZtGqbKmoa0-44" edge="1" parent="1" source="JKZ3ICrF5GZtGqbKmoa0-32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="JKZ3ICrF5GZtGqbKmoa0-37" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="600" y="535" />
+            </Array>
+            <mxPoint x="655" y="560" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JKZ3ICrF5GZtGqbKmoa0-32" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Storniert:&lt;div&gt;Report kann nicht mehr bearbeitet werden.&lt;/div&gt;&lt;div&gt;Report ist archiviert für Audit/Nachvollziehbarkeit&lt;/div&gt;&lt;div&gt;unter Fall-ID.V...&lt;/div&gt;&lt;div&gt;(signed mit Zeitstempel + User, Satusfeld=storno)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="270" x="520" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="JKZ3ICrF5GZtGqbKmoa0-37" parent="1" style="ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=#ff0000;" value="" vertex="1">
+          <mxGeometry height="30" width="30" x="500" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="JKZ3ICrF5GZtGqbKmoa0-38" parent="1" style="ellipse;html=1;shape=startState;fillColor=#000000;strokeColor=#ff0000;" value="" vertex="1">
+          <mxGeometry height="30" width="30" x="455" y="-30" as="geometry" />
+        </mxCell>
+        <mxCell id="JKZ3ICrF5GZtGqbKmoa0-39" edge="1" parent="1" source="JKZ3ICrF5GZtGqbKmoa0-38" style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="JKZ3ICrF5GZtGqbKmoa0-17" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="485" y="330" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JKZ3ICrF5GZtGqbKmoa0-40" connectable="0" parent="JKZ3ICrF5GZtGqbKmoa0-39" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;b&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;Startpunkt&lt;/font&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry relative="1" x="-0.1382" y="5" as="geometry">
+            <mxPoint x="45" y="-33" as="offset" />
+          </mxGeometry>
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
